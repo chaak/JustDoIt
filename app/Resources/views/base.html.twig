@@ -1,13 +1,218 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<title>JustDoIt</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+    body, h1, h2, h3, h4, h5 {
+        font-family: "Poppins", sans-serif
+    }
+
+    body {
+        font-size: 16px;
+    }
+
+    .w3-half img {
+        margin-bottom: -6px;
+        margin-top: 16px;
+        opacity: 0.8;
+        cursor: pointer
+    }
+
+    .w3-half img:hover {
+        opacity: 1
+    }
+</style>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding"
+     style="z-index:3;width:280px;font-weight:bold;"
+     id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
+       style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+        <h3 class="w3-padding-64"><b>JustDoIt Team</b></h3>
+    </div>
+    <div class="w3-bar-block">
+        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>
+        <a href="#recipes" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Recipes</a>
+        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Designers</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+    </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+    <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+    <span>JustDoIt</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu"
+     id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="about">
+        <h1 class="w3-jumbo"><b>Food recipes</b></h1>
+        <h1 class="w3-xxxlarge w3-text-red"><b>About.</b></h1>
+        <hr style="width:100px;border:3px solid red" class="w3-round">
+        <p>Stranded on a desolate island? Hungry? It's okay we are here to save you from the evil tyrant of hunger. Let
+            me introduce you to a mexican fusion dish bursting with flavor. I welcome the Shrimp and Black Bean
+            Quesadilla. This is no ordinary quesadilla, we have managed to contain land and sea in one delicious snack.
+            With this dish in your culinary arsenal we guarantee friends will worship you, strangers will want to be you
+            and mouths will water from all around. Let our recipe take you to new heights.
+        </p>
+    </div>
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+        <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+        <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+            <img id="img01" class="w3-image">
+            <p id="caption"></p>
+        </div>
+    </div>
+
+    <!-- Recipes -->
+    <div class="w3-container" id="recipes" style="margin-top:20px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Recipes.</b></h1>
+        <hr style="width:100px;border:3px solid red" class="w3-round">
+        <img src="http://cdn.jamieoliver.com/recipe-database/xtra_med/5NNweMcpK-099-lYx3P2t_.jpg" alt="Shrimp & Black Bean Quesadillas" >
+        <h2>Shrimp & black bean quesadillas</h2>
+        <p>
+            200g Large Raw Prawns (from sustainable sources)<br>
+            1 Tablespoon Smoked Paprika<br>
+            1 Tablespoon Vegetable Oil<br>
+            250g Mature Cheddar Cheese<br>
+            4 Large Flour Tortillas<br>
+            400g Black Beans<br>
+            4 Tablespoons Pickled Jalapeños, plus extra to serve<br>
+            2 Tablespoons Coriander, plus extra to serve<br>
+            Sour cream and Salsa, to serve<br>
+        </p>
+        <p>
+            In a small bowl, toss the prawns with the smoked paprika and some salt and pepper. Heat a small frying pan
+            with 1 teaspoon of the oil. Sear the prawns for 1 minute each side. Remove, let cool and halve lengthways.
+            Set aside.
+        </p>
+        <p>
+            Spread half of the cheese over two tortillas. Drain the beans and roughly chop the jalapeños, then sprinkle
+            over, along with the prawns. Finely chop the coriander, then divide between the tortillas, cover with the
+            remaining cheese and top with the other tortillas.
+        </p>
+        <p>
+            Divide the rest of the oil between two frying pans and place them over a low–medium heat. Brown the
+            tortillas on one side for 3 to 4 minutes, until the cheese is melted and golden, taking care not to let them
+            burn. Turn them over and cook for 3 minutes. If the pan is looking a little dry, add another tiny drizzle of
+            vegetable oil.
+        </p>
+            Once the cheese has melted, remove the quesadillas from the pan and cut each one into six triangles. Serve
+            straight away, topped with a dollop of sour cream and salsa, the pickled jalapeños and coriander leaves
+        <p>
+            Let’s build a healthier, happier world through the joy of food! Join the
+        </p>
+    </div>
+
+    <!-- Designers -->
+    <div class="w3-container" id="designers" style="margin-top:20px">
+        <h1 class="w3-xxxlarge w3-text-red"><b>Designers.</b></h1>
+        <hr style="width:100px;border:3px solid red" class="w3-round">
+        <p>We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
+            adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p><b>Team members</b>:</p>
+    </div>
+
+    <!-- The Team -->
+    <div class="w3-row-padding w3-grayscale">
+        <div class="w3-col m4 w3-margin-bottom">
+            <div class="w3-light-grey">
+                <div class="w3-container">
+                    <h3>Jakub Witczak</h3>
+                    <p class="w3-opacity">Designer</p>
+                </div>
+            </div>
+        </div>
+        <div class="w3-col m4 w3-margin-bottom">
+            <div class="w3-light-grey">
+                <div class="w3-container">
+                    <h3>Jakub Karło</h3>
+                    <p class="w3-opacity">Designer</p>
+                </div>
+            </div>
+        </div>
+        <div class="w3-col m4 w3-margin-bottom">
+            <div class="w3-light-grey">
+                <div class="w3-container">
+                    <h3>Nickoli Spence</h3>
+                    <p class="w3-opacity">Designer Ninja Chef</p>
+                </div>
+            </div>
+        </div>
+        <div class="w3-col m4 w3-margin-bottom">
+            <div class="w3-light-grey">
+                <div class="w3-container">
+                    <h3>Belemir Cilingir</h3>
+                    <p class="w3-opacity">Designer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="w3-container" id="contact" style="margin-top:75px">
+            <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
+            <hr style="width:100px;border:3px solid red" class="w3-round">
+            <p>Do you want us to prepare the recipe for you? Fill out the form.</p>
+            <form action="/action_page.php" target="_blank">
+                <div class="w3-group">
+                    <label>Name</label>
+                    <input class="w3-input w3-border" type="text" name="Name" required>
+                </div>
+                <div class="w3-group">
+                    <label>Email</label>
+                    <input class="w3-input w3-border" type="text" name="Email" required>
+                </div>
+                <div class="w3-group">
+                    <label>Message</label>
+                    <input class="w3-input w3-border" type="text" name="Message" required>
+                </div>
+                <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        // Modal Image Gallery
+        function onClick(element) {
+            document.getElementById("img01").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+            var captionText = document.getElementById("caption");
+            captionText.innerHTML = element.alt;
+        }
+    </script>
+
+</body>
 </html>
