@@ -1,13 +1,19 @@
+{# app/Resources/views/base.html.twig #}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Recipes{% endblock %}</title>
+</head>
+
+<body>
+    <div id="sidebar">
+    </div>
+
+    <div id="content">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </div>
+</body>
+
 </html>
