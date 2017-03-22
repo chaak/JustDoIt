@@ -16,3 +16,16 @@ body {
 .w3-half img:hover {
     opacity: 1
 }
+
+.language-icons{
+    margin:0;
+    padding:0;
+}
+
+.language-icons li {
+    display:inline-block;
+}
+
+.language-icons li img{
+    width:30px;
+}

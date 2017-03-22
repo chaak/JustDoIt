@@ -66,12 +66,12 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
-<<<<<<< HEAD
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+      transport: '%mailer_transport%'
+      host: '%mailer_host%'
+      username: '%mailer_user%'
+      password: '%mailer_password%'
+      spool: { type: memory }
+
 
 
 # Assetic configuration
@@ -80,13 +80,3 @@ assetic:
     use_controller: '%kernel.debug%'
     filters:
         cssrewrite: ~
-
-=======
-    transport: '%mailer_transport%'
-    host: '%mailer_host%'
-    username: '%mailer_user%'
-    password: '%mailer_password%'
-    spool: { type: memory }
-
-
->>>>>>> refs/remotes/origin/master

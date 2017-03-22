@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 class HomePageController extends Controller
 {
     /**
-     * @Route("/homepage")
+     * @Route("/{_locale}/homepage")
      */
 
     public function showAction()

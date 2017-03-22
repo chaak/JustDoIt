@@ -4,23 +4,23 @@
         <body>
             <trans-unit id="home">
                 <source>home.text</source>
-                <target>Strona główna</target>
+                <target>Home</target>
             </trans-unit>
             <trans-unit id ="about">
                 <source>about.text</source>
-                <target>O stronie</target>
+                <target>About</target>
             </trans-unit>
             <trans-unit id ="recipes">
                 <source>recipes.text</source>
-                <target>Przepisy</target>
+                <target>Recipes</target>
             </trans-unit>
             <trans-unit id ="designers">
                 <source>designers.text</source>
-                <target>Twórcy</target>
+                <target>Designers</target>
             </trans-unit>
             <trans-unit id ="contact">
                 <source>contact.text</source>
-                <target>Kontakt</target>
+                <target>Contact</target>
             </trans-unit>
         </body>
     </file>
