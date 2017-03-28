@@ -35,9 +35,24 @@ class HomePageController extends Controller
 //        return new Response('Saved new product with id '.$recipe->getId());
 //    }
 
-    public function showAction()
+    public function showAction($productId)
     {
-       return $this->render('default/index.html.twig');
+        $product = $this->getDoctrine()
+            ->getRepository('AppBundle:Product')
+            ->find($productId);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$productId
+            );
+        }
+
+        // ... do something, like pass the $product object into a template
     }
+
+//    public function showAction()
+//    {
+//       return $this->render('default/index.html.twig');
+//    }
 
 }
