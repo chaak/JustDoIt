@@ -37,7 +37,15 @@ class HomePageController extends Controller
 
     public function showAction()
     {
-       return $this->render('default/index.html.twig');
+        $id = 1;
+        $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
+        if (!$recipe) {
+            throw $this->createNotFoundException(
+                'No recipe found for id '.$id
+            );
+        }
+
+       return $this->render('default/index.html.twig',array('recipes'=>$recipe));
     }
 
 }
