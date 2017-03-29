@@ -21,8 +21,9 @@ class HomePageController extends Controller
 
 //    public function createAction(){
 //        $recipe = new Recipe();
-//        $recipe->setTitle("TestRecipe");
-//        $recipe->setDescription("RandomDescription");
+//        $recipe->setTitle("Shrimp and Black Bean Quesadilla");
+//        $recipe->setDescription("This mexican fusion appetizer is bound to be a
+//                  hit at any party.");
 //
 //        $em = $this->getDoctrine()->getManager();
 //
@@ -37,7 +38,7 @@ class HomePageController extends Controller
 
     public function showAction()
     {
-        $id = 1;
+        $id = 2;
         $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
         if (!$recipe) {
             throw $this->createNotFoundException(
