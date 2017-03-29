@@ -23,6 +23,7 @@ class HomePageController extends Controller
      * @Route("/{_locale}/addRecipe")
      */
 
+<<<<<<< HEAD
     public function createAction(){
 
         $ingredient1 = new Ingredient();
@@ -59,6 +60,13 @@ class HomePageController extends Controller
 //     */
 //    public function loginAction()
 //    {
+=======
+//    public function createAction(){
+//        $recipe = new Recipe();
+//        $recipe->setTitle("Shrimp and Black Bean Quesadilla");
+//        $recipe->setDescription("This mexican fusion appetizer is bound to be a
+//                  hit at any party.");
+>>>>>>> Updated to real words
 //
 //        $user = new User();
 //
@@ -104,7 +112,11 @@ class HomePageController extends Controller
      */
     public function showAction()
     {
+<<<<<<< HEAD
         $id = 7;
+=======
+        $id = 2;
+>>>>>>> Updated to real words
         $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
         if (!$recipe) {
             throw $this->createNotFoundException(
