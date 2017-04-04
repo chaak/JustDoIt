@@ -1,0 +1,11 @@
+{# app/Resources/views/blog/login.html.twig #}
+{% extends 'base.html.twig' %}
+{% block about %}
+    <p>You can login here</p>
+{% endblock %}
+
+{% block recipes %}
+{{ form_start(login) }}
+{{ form_widget(login) }}
+{{ form_end(login) }}
+{%  endblock %}
