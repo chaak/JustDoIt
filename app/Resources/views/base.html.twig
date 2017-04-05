@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
-<link rel="stylesheet" href="{{ asset_url }}" />
+<link rel="stylesheet" href="{{ asset_url }}"/>
 {% endstylesheets %}
 
 <body>
@@ -17,25 +17,40 @@
      id="mySidebar"><br>
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
        style="width:100%;font-size:22px">Close Menu</a>
-    <div class ="w3-container">
-    <ul class = "language-icons">
-        <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'pl'}) }}"><li>{% image '@AppBundle/Resources/public/images/pl_flag_round.png' %}
-        <img src="{{ asset_url }}" alt="Polish language" />
-        {% endimage %}</li></a>
-        <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}"><li>{% image '@AppBundle/Resources/public/images/us_flag_round.png' %}
-                <img src="{{ asset_url }}" alt="US language" />
-                {% endimage %}</li></a>
-    </ul>
+    <div class="w3-container">
+
+        <ul class="language-icons">
+            <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'pl'}) }}">
+                <li>{% image '@AppBundle/Resources/public/images/pl_flag_round.png' %}
+                    <img src="{{ asset_url }}" alt="Polish language"/>
+                    {% endimage %}</li>
+            </a>
+            <a href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
+                <li>{% image '@AppBundle/Resources/public/images/us_flag_round.png' %}
+                    <img src="{{ asset_url }}" alt="US language"/>
+                    {% endimage %}</li>
+            </a>
+            <a class="loginLink" href="login">Sign up</a>
+            {% block addRecipeButton %}
+            {% endblock %}
+        </ul>
+
     </div>
     <div class="w3-container">
         <h3 class="w3-padding-64"><b>JustDoIt Team</b></h3>
     </div>
     <div class="w3-bar-block">
-        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{%trans%}home.text{%endtrans%}</a>
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{%trans%}about.text{%endtrans%}</a>
-        <a href="#recipes" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{%trans%}recipes.text{%endtrans%}</a>
-        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{%trans%}designers.text{%endtrans%}</a>
-        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{%trans%}contact.text{%endtrans%}</a>
+        {% block sidebar %}
+        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+            home.text{% endtrans %}</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+            about.text{% endtrans %}</a>
+        <a href="#recipes" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+            recipes.text{% endtrans %}</a>
+        <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+            designers.text{% endtrans %}</a>
+        {% endblock %}
+
     </div>
 </nav>
 
@@ -72,7 +87,8 @@
         <hr style="width:100px;border:3px solid red" class="w3-round">
         {% block recipes %}
         {% endblock %}
-        <img src="http://cdn.jamieoliver.com/recipe-database/xtra_med/5NNweMcpK-099-lYx3P2t_.jpg" alt="Shrimp & Black Bean Quesadillas" >
+        <img src="http://cdn.jamieoliver.com/recipe-database/xtra_med/5NNweMcpK-099-lYx3P2t_.jpg"
+             alt="Shrimp & Black Bean Quesadillas">
     </div>
 
     <!-- Designers -->
@@ -120,28 +136,9 @@
 
         <!-- Contact -->
         <div class="w3-container" id="contact" style="margin-top:75px">
-            <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
-            <hr style="width:100px;border:3px solid red" class="w3-round">
-            <p>Do you want us to prepare the recipe for you? Fill out the form.</p>
-            <form action="/action_page.php" target="_blank">
-                <div class="w3-group">
-                    <label>Name</label>
-                    <input class="w3-input w3-border" type="text" name="Name" required>
-                </div>
-                <div class="w3-group">
-                    <label>Email</label>
-                    <input class="w3-input w3-border" type="text" name="Email" required>
-                </div>
-                <div class="w3-group">
-                    <label>Message</label>
-                    <input class="w3-input w3-border" type="text" name="Message" required>
-                </div>
-                <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message
-                </button>
-            </form>
+            {% block addRecipe %}
+            {% endblock %}
         </div>
-
-    </div>
 
 
 </body>

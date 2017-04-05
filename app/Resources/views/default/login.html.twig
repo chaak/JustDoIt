@@ -1,0 +1,13 @@
+{# app/Resources/views/blog/login.html.twig #}
+{% extends 'base.html.twig' %}
+{% block about %}
+    <p>You can login here</p>
+    <br>
+    {{ form_start(login) }}
+    {{ form_widget(login) }}
+    {{ form_end(login) }}
+{% endblock %}
+
+{% block addRecipeButton %}
+    <a class="formLink" href="form">Add recipe</a>
+{% endblock %}

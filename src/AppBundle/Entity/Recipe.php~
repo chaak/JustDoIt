@@ -28,6 +28,12 @@ class Recipe{
     private $title;
 
     /**
+     *@ORM\Column(name="ingredients", type="array", nullable=true)
+     */
+    private $ingredients;
+
+
+    /**
      * Get id
      *
      * @return integer
@@ -84,4 +90,5 @@ class Recipe{
     {
         return $this->title;
     }
+
 }

@@ -10,8 +10,11 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Recipe;
+use AppBundle\Entity\User;
 
 class HomePageController extends Controller
 {
@@ -32,27 +35,69 @@ class HomePageController extends Controller
 //        // actually executes the queries (i.e. the INSERT query)
 //        $em->flush();
 //
-//        return new Response('Saved new product with id '.$recipe->getId());
+//        return new Response('Saved new product with login ' . $recipe->getLogin());
 //    }
-
-    public function showAction($productId)
+    /**
+     * @Route("/{_locale}/login")
+     */
+    public function loginAction()
     {
-        $product = $this->getDoctrine()
-            ->getRepository('AppBundle:Product')
-            ->find($productId);
 
-        if (!$product) {
+        $user = new User();
+
+        $user ->setLogin("Provide Your Login");
+        $user ->setPassword("Provide Your Password");
+        $user ->setEmail("Provide Your E-mail");
+
+        $form = $this->createFormBuilder($user )
+            ->add('Login', TextType::class)
+            ->add('Password', TextType::class)
+            ->add('Email', TextType::class)
+            ->add('save', SubmitType::class, array('label' => 'Create User'))
+            ->getForm();
+
+        return $this->render('default/login.html.twig', array(
+            'login' => $form->createView(),
+        ));
+    }
+        // ... do something, like pass the $product object into a template
+    /**
+     * @Route("/{_locale}/form")
+     */
+    public function formAction()
+    {
+
+        $recipe = new Recipe();
+        $recipe->setTitle('Write a blog post');
+        $recipe->setDescription("siemaneczko");
+
+        $form = $this->createFormBuilder($recipe)
+            ->add('Title', TextType::class)
+            ->add('Description', TextType::class)
+            ->add('save', SubmitType::class, array('label' => 'Create Recipe'))
+            ->getForm();
+
+        return $this->render('default/form.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("/{_locale}/homepage")
+     */
+    public function showAction()
+    {
+        $id = 1;
+        $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
+        if (!$recipe) {
             throw $this->createNotFoundException(
-                'No product found for id '.$productId
+                'No recipe found for id '.$id
             );
         }
 
-        // ... do something, like pass the $product object into a template
+       return $this->render('default/index.html.twig',array('recipes'=>$recipe));
     }
 
-//    public function showAction()
-//    {
-//       return $this->render('default/index.html.twig');
-//    }
+
 
 }
