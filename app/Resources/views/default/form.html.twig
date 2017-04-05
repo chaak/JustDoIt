@@ -1,7 +1,22 @@
 {# app/Resources/views/blog/form.html.twig #}
 {% extends 'base.html.twig' %}
-{% block recipes %}
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
-{%  endblock %}
+    {% block addRecipe %}
+        <h1 class="w3-xxxlarge w3-text-red"><b>Add recipe.</b></h1>
+        <hr style="width:100px;border:3px solid red" class="w3-round">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    {% endblock %}
+
+{% block sidebar %}
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+        home.text{% endtrans %}</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+        about.text{% endtrans %}</a>
+    <a href="#recipes" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+        recipes.text{% endtrans %}</a>
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+        designers.text{% endtrans %}</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">{% trans %}
+        contact.text{% endtrans %}</a>
+{% endblock %}
