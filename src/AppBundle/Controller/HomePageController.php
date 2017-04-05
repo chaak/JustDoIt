@@ -15,28 +15,45 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Recipe;
 
 class HomePageController extends Controller
 {
+    /**
+     * @Route("/{_locale}/addRecipe")
+     */
 
+    public function createAction(){
 
-//    public function createAction(){
-//        $ingredient =$this->getDoctrine()->getRepository("AppBundle:Ingredient")->find(1);
-//
-//        $recipe = new Recipe();
-//        $recipe->setTitle("TestRecipe");
-//        $recipe->setDescription("RandomDescription");
-//
-//        $em = $this->getDoctrine()->getManager();
-//
-//        // tells Doctrine you want to (eventually) save the Product (no queries yet)
-//        $em->persist($ingredient);
-//
-//        // actually executes the queries (i.e. the INSERT query)
-//        $em->flush();
-//
-//        return new Response('Saved new product with id '.$ingredient->getAmount());
-//    }
+        $ingredient1 = new Ingredient();
+        $ingredient2 = new Ingredient();
+        $ingredient3 = new Ingredient();
+        $ingredient4 = new Ingredient();
+        $ingredient1->setName("cheese");
+        $ingredient1->setAmount("100 gram");
+        $ingredient2->setName("Not cheese");
+        $ingredient2->setAmount("100 gram");
+        $ingredient3->setName("Paprika");
+        $ingredient3->setAmount("1000 gram");
+        $ingredient4->setName("Not fckn cheese");
+        $ingredient4->setAmount("2100 gram");
+
+        $recipe = new Recipe();
+        $recipe->setTitle("TestRecipe");
+        $recipe->setDescription("RandomDescription");
+        $recipe->setIngredients(array($ingredient1, $ingredient2,$ingredient3,$ingredient4));
+
+        $em = $this->getDoctrine()->getManager();
+
+        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+        $em->persist($recipe);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $em->flush();
+
+        return new Response('Saved new product with id '.$recipe->getId());
+    }
+
     /**
      * @Route("/{_locale}/login")
      */
@@ -87,7 +104,7 @@ class HomePageController extends Controller
      */
     public function showAction()
     {
-        $id = 1;
+        $id = 7;
         $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
         if (!$recipe) {
             throw $this->createNotFoundException(

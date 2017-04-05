@@ -9,6 +9,9 @@ security:
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
+        default:
+            anonymous: ~
+            http_basic: ~
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
@@ -18,7 +21,6 @@ security:
             # activate different ways to authenticate
 
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
 
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
             #form_login: ~

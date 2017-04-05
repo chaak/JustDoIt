@@ -27,10 +27,10 @@ class Recipe{
      */
     private $title;
 
-//    /**
-//     *@ORM\Column(name="ingredients", type="array", nullable=true)
-//     */
-//    private $ingredients;
+    /**
+     *@ORM\Column(name="ingredients", type="array", nullable=true)
+     */
+    private $ingredients;
 
 
     /**
@@ -92,27 +92,28 @@ class Recipe{
     }
 
 
-//    /**
-//     * Set ingredients
-//     *
-//     * @param array $ingredients
-//     *
-//     * @return Recipe
-//     */
-//    public function setIngredients($ingredients)
-//    {
-//        $this->ingredients = $ingredients;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Get ingredients
-//     *
-//     * @return array
-//     */
-//    public function getIngredients()
-//    {
-//        return $this->ingredients;
-//    }
+    /**
+     * Set ingredients
+     *
+     * @param array $ingredients
+     *
+     * @return Recipe
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return array
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
 }
