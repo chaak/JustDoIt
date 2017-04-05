@@ -54,29 +54,29 @@ class HomePageController extends Controller
         return new Response('Saved new product with id '.$recipe->getId());
     }
 
-    /**
-     * @Route("/{_locale}/login")
-     */
-    public function loginAction()
-    {
-
-        $user = new User();
-
-        $user ->setLogin("Provide Your Login");
-        $user ->setPassword("Provide Your Password");
-        $user ->setEmail("Provide Your E-mail");
-
-        $form = $this->createFormBuilder($user )
-            ->add('Login', TextType::class)
-            ->add('Password', TextType::class)
-            ->add('Email', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create User'))
-            ->getForm();
-
-        return $this->render('default/login.html.twig', array(
-            'login' => $form->createView(),
-        ));
-    }
+//    /**
+//     * @Route("/{_locale}/login")
+//     */
+//    public function loginAction()
+//    {
+//
+//        $user = new User();
+//
+//        $user ->setLogin("Provide Your Login");
+//        $user ->setPassword("Provide Your Password");
+//        $user ->setEmail("Provide Your E-mail");
+//
+//        $form = $this->createFormBuilder($user )
+//            ->add('Login', TextType::class)
+//            ->add('Password', TextType::class)
+//            ->add('Email', TextType::class)
+//            ->add('save', SubmitType::class, array('label' => 'Create User'))
+//            ->getForm();
+//
+//        return $this->render('default/login.html.twig', array(
+//            'login' => $form->createView(),
+//        ));
+//    }
 
     /**
      * @Route("/{_locale}/form")
