@@ -3,9 +3,18 @@
 {% block about %}
     <p>You can login here</p>
     <br>
-    {{ form_start(login) }}
-    {{ form_widget(login) }}
-    {{ form_end(login) }}
+    {#{{ form_start(login) }}#}
+    {#{{ form_widget(login) }}#}
+    {#{{ form_end(login) }}#}
+
+    {{ form_start(form) }}
+    {{ form_row(form.login) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.password.first) }}
+    {{ form_row(form.password.second) }}
+
+    <button type="submit">Register!</button>
+    {{ form_end(form) }}
 {% endblock %}
 
 {% block addRecipeButton %}

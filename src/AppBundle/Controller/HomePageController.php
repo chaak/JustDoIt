@@ -10,6 +10,9 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,49 +21,26 @@ use AppBundle\Entity\User;
 
 class HomePageController extends Controller
 {
-    /**
-     * @Route("/{_locale}/homepage")
-     */
-
-//    public function createAction(){
-//        $recipe = new Recipe();
-//        $recipe->setTitle("TestRecipe");
-//        $recipe->setDescription("RandomDescription");
+//    /**
+//     * @Route("/{_locale}/homepage")
+//     */
 //
-//        $em = $this->getDoctrine()->getManager();
+//    public function showAction(){
+//        $recipe = new User();
+////        $recipe->setTitle("TestRecipe");
+////        $recipe->setDescription("RandomDescription");
+//
+//        $recipe = $this->getDoctrine()->getRepository("AppBundle:User") -> find(6);
 //
 //        // tells Doctrine you want to (eventually) save the Product (no queries yet)
-//        $em->persist($recipe);
+//        //$em->persist($recipe);
 //
 //        // actually executes the queries (i.e. the INSERT query)
-//        $em->flush();
+//        //$em->flush();
 //
-//        return new Response('Saved new product with login ' . $recipe->getLogin());
+//        return new Response('Saved new product with login ' . $recipe->getEmail());
 //    }
-    /**
-     * @Route("/{_locale}/login")
-     */
-    public function loginAction()
-    {
 
-        $user = new User();
-
-        $user ->setLogin("Provide Your Login");
-        $user ->setPassword("Provide Your Password");
-        $user ->setEmail("Provide Your E-mail");
-
-        $form = $this->createFormBuilder($user )
-            ->add('Login', TextType::class)
-            ->add('Password', TextType::class)
-            ->add('Email', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create User'))
-            ->getForm();
-
-        return $this->render('default/login.html.twig', array(
-            'login' => $form->createView(),
-        ));
-    }
-        // ... do something, like pass the $product object into a template
     /**
      * @Route("/{_locale}/form")
      */
