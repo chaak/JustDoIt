@@ -18,6 +18,7 @@ class RecipeType extends AbstractType
         $builder
             ->add('Title')
             ->add('Description')
+            ->add('Ingredients')
             ->add('save', SubmitType::class)
         ;
     }

@@ -78,26 +78,25 @@ class HomePageController extends Controller
 //        ));
 //    }
 
-    /**
-     * @Route("/{_locale}/form")
-     */
-    public function formAction()
-    {
-
-        $recipe = new Recipe();
-        $recipe->setTitle('Write a blog post');
-        $recipe->setDescription("siemaneczko");
-
-        $form = $this->createFormBuilder($recipe)
-            ->add('Title', TextType::class)
-            ->add('Description', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create Recipe'))
-            ->getForm();
-
-        return $this->render('default/form.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
+ 
+//    public function formAction()
+//    {
+//
+//        $recipe = new Recipe();
+//        $recipe->setTitle('Write a blog post');
+//        $recipe->setDescription("siemaneczko");
+//
+//        $form = $this->createFormBuilder($recipe)
+//            ->add('Title', TextType::class)
+//            ->add('Description', TextType::class)
+//            ->add('')
+//            ->add('save', SubmitType::class, array('label' => 'Create Recipe'))
+//            ->getForm();
+//
+//        return $this->render('default/form.html.twig', array(
+//            'form' => $form->createView(),
+//        ));
+//    }
 
     /**
      * @Route("/{_locale}/homepage")

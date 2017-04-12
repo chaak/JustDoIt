@@ -3,9 +3,9 @@
     {% block addRecipe %}
         <h1 class="w3-xxxlarge w3-text-red"><b>Add recipe.</b></h1>
         <hr style="width:100px;border:3px solid red" class="w3-round">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+        {{ form_start(recipe) }}
+        {{ form_widget(recipe) }}
+        {{ form_end(recipe) }}
     {% endblock %}
 
 {% block sidebar %}
