@@ -13,15 +13,9 @@
 {% block recipes %}
     <h2>{{ recipes.title }}</h2>
     <p>
-        200 g large raw prawns , from sustainable sources<br>
-        1 tablespoon smoked paprika<br>
-        1 tablespoon vegetable oil<br>
-        250 g mature cheddar cheese<br>
-        4 large flour tortillas<br>
-        400 g black beans<br>
-        4 tablespoons pickled jalapeños , plus extra to serve<br>
-        2 tablespoons coriander , plus extra to serve<br>
-        sour cream and salsa , to serve<br>
+        {% for ingredient in recipes.ingredients %}
+        {{ ingredient.amount}} {{ ingredient.name }}<br>
+        {% endfor %}
     </p>
     <p> {{ recipes.description }} </p>
 {% endblock %}

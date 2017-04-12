@@ -27,6 +27,15 @@ class Recipe{
      */
     private $title;
 
+<<<<<<< HEAD
+=======
+    /**
+     *@ORM\Column(name="ingredients", type="array", nullable=true)
+     */
+    private $ingredients;
+
+
+>>>>>>> 367b5f93330b76668bd5a8e8c26975576cd794c8
     /**
      * Get id
      *
@@ -84,4 +93,33 @@ class Recipe{
     {
         return $this->title;
     }
+<<<<<<< HEAD
+=======
+
+
+    /**
+     * Set ingredients
+     *
+     * @param array $ingredients
+     *
+     * @return Recipe
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+
+        return $this;
+    }
+
+    /**
+     * Get ingredients
+     *
+     * @return array
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+>>>>>>> 367b5f93330b76668bd5a8e8c26975576cd794c8
 }
