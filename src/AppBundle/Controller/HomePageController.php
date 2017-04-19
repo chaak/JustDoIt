@@ -8,13 +8,21 @@
 
 namespace AppBundle\Controller;
 
+<<<<<<< HEAD
 use AppBundle\Entity\Ingredient;
 use AppBundle\Form\RecipeType;
+=======
+>>>>>>> c4b98c181754197369d1372a59db078ac293a88a
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+use AppBundle\Entity\User;
+>>>>>>> 367b5f93330b76668bd5a8e8c26975576cd794c8
+>>>>>>> c4b98c181754197369d1372a59db078ac293a88a
 use AppBundle\Entity\Recipe;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -22,6 +30,27 @@ use Symfony\Component\HttpFoundation\Request;
 class HomePageController extends Controller
 {
     /**
+<<<<<<< HEAD
+     * @Route("/{_locale}/homepage")
+     */
+
+//    public function createAction(){
+//        $recipe = new Recipe();
+//        $recipe->setTitle("Shrimp and Black Bean Quesadilla");
+//        $recipe->setDescription("This mexican fusion appetizer is bound to be a
+//                  hit at any party.");
+//
+//        $em = $this->getDoctrine()->getManager();
+//
+//        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+//        $em->persist($recipe);
+//
+//        // actually executes the queries (i.e. the INSERT query)
+//        $em->flush();
+//
+//        return new Response('Saved new product with id '.$recipe->getId());
+//    }
+=======
      * @Route("/{_locale}/addRecipe")
      */
 
@@ -90,6 +119,7 @@ class HomePageController extends Controller
     {
 
         $recipe = new Recipe();
+<<<<<<< HEAD
         $recipe->setTitle('Recipe Title');
 
         $form = $this->createFormBuilder($recipe)
@@ -109,6 +139,19 @@ class HomePageController extends Controller
     {
 
         $id = 2;
+=======
+        $recipe->setTitle('Write a blog post');
+        $recipe->setDescription("siemaneczko");
+>>>>>>> 367b5f93330b76668bd5a8e8c26975576cd794c8
+
+    public function showAction()
+    {
+<<<<<<< HEAD
+        $id = 2;
+=======
+        $id = 7;
+>>>>>>> 367b5f93330b76668bd5a8e8c26975576cd794c8
+>>>>>>> c4b98c181754197369d1372a59db078ac293a88a
         $recipe = $this->getDoctrine()->getRepository('AppBundle:Recipe')->find($id);
         if (!$recipe) {
             throw $this->createNotFoundException(
