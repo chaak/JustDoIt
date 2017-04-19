@@ -1,12 +1,10 @@
 <?php
 namespace AppBundle\Form;
 
-use AppBundle\Entity\Recipe;
+use AppBundle\Entity\Ingredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Created by PhpStorm.
@@ -14,20 +12,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  * Date: 4/5/2017
  * Time: 10:46 AM
  */
-class RecipeType extends AbstractType
+class IngredientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('Title')
-            ->add('Ingredients', CollectionType::class, array(
-                'entry_type' => IngredientType::class
-            ));
+        $builder->add('name');
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'Recipe_Class' => Recipe::class,
+            'Ingredients' => Ingredient::class,
         ));
     }
 }

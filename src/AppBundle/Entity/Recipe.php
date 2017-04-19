@@ -3,117 +3,44 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="recipes")
  */
-class Recipe{
+class Recipe
+{
+    /**
+     * @Assert\NotBlank()
+     */
 
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $title;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $description;
+    protected $ingredients;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     */
-    private $title;
-
-    /**
-     *@ORM\Column(name="ingredients", type="array", nullable=true)
-     */
-    private $ingredients;
-
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->ingredients = new ArrayCollection();
     }
 
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Recipe
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return Recipe
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
     public function getTitle()
     {
         return $this->title;
     }
 
-
-    /**
-     * Set ingredients
-     *
-     * @param array $ingredients
-     *
-     * @return Recipe
-     */
-    public function setIngredients($ingredients)
+    public function setTitle($title)
     {
-        $this->ingredients = $ingredients;
-
-        return $this;
+        $this->title = $title;
     }
 
-    /**
-     * Get ingredients
-     *
-     * @return array
-     */
     public function getIngredients()
     {
         return $this->ingredients;
     }
-
 }
